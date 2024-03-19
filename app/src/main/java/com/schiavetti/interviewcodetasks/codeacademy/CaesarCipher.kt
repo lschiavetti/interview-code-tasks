@@ -59,15 +59,15 @@ object CaesarCipher {
      */
     fun getEncodedMessage(message: String, shiftKey: Int): String {
         return message.map {
-            val index = alphabet.indexOf("$it")
+            val charIndexOnAlphabet = alphabet.indexOf("$it")
+            val encodedCharIndexOnAlphabet = charIndexOnAlphabet + shiftKey
 
-            if (index + shiftKey > alphabet.lastIndex) {
-                val remainingIndexes = alphabet.lastIndex - index
-                val startIndex = shiftKey - remainingIndexes
+            if (encodedCharIndexOnAlphabet > alphabet.lastIndex) {
+                val encodedCharIndexAfterListRestart = (encodedCharIndexOnAlphabet - alphabet.lastIndex) -1
 
-                alphabet[startIndex]
+                alphabet[encodedCharIndexAfterListRestart]
             } else {
-                alphabet[index + shiftKey]
+                alphabet[encodedCharIndexOnAlphabet]
             }
         }.joinToString("")
     }
