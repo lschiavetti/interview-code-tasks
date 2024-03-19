@@ -60,7 +60,7 @@ object KotlinPractice {
      *  the left and "accumulating" values using the return of the
      *  operator block. The operator return value will become the next
      *  accumulator and so on.
-     *  Not that, for reduce, the first iteration receives the first
+     *  Note that, for reduce, the first iteration receives the first
      *  element as the acc parameter and the second element as the i
      *  parameter. Also, reduce requires the type to be the same
      *  for the accumulator as well as for the i parameter (and also for
